@@ -4,9 +4,19 @@ form.addEventListener('submit',save);
 
 function save(e){
     e.preventDefault();
-    var nameee = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
+   // let item =[];
+    let myObj =JSON.parse(localStorage.getItem("myObj")) || null;
+     myObj.push({
+        nameee : document.getElementById('name').value,
+         email : document.getElementById('email').value
+    });
+    
 
-    localStorage.setItem('name',nameee);
-    localStorage.setItem('email',email);
+localStorage.setItem("myObj",JSON.stringify(myObj));
+console.log(localStorage);
+ 
 }
+
+
+
+
