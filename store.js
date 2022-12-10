@@ -1,18 +1,21 @@
 var form = document.getElementById('my-form');
 
 form.addEventListener('submit',save);
-
+let i=0;
 function save(e){
+    i++;
     e.preventDefault();
-   // let item =[];
-    let myObj =JSON.parse(localStorage.getItem("myObj")) || null;
-     myObj.push({
+    let item =[];
+   
+  //  let myObj =JSON.parse(localStorage.getItem("myObj")) || null;
+    let myObj = {
         nameee : document.getElementById('name').value,
          email : document.getElementById('email').value
-    });
+    };
     
-
-localStorage.setItem("myObj",JSON.stringify(myObj));
+    item.push(i);
+    
+localStorage.setItem(`user ${item}`,JSON.stringify(myObj));
 console.log(localStorage);
  
 }
